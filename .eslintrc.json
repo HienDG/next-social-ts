@@ -1,3 +1,27 @@
 {
-   "extends": ["next/core-web-vitals"]
+   "plugins": ["@typescript-eslint", "@tanstack/query"],
+   "extends": [
+      "next/core-web-vitals",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@tanstack/eslint-plugin-query/recommended"
+   ],
+   "rules": {
+      "@typescript-eslint/no-unused-vars": [
+         "error",
+         {
+            "argsIgnorePattern": "^_"
+         }
+      ],
+      "@typescript-eslint/no-explicit-any": "error",
+
+      "no-unused-labels": "error",
+      "no-catch-shadow": "error",
+      "no-duplicate-imports": "error",
+      "no-confusing-arrow": "error",
+      "no-console": ["error", { "allow": ["warn", "error"] }],
+      "eqeqeq": ["error", "always"],
+      "prefer-const": "error",
+      "@tanstack/query/exhaustive-deps": "error",
+      "@tanstack/query/prefer-query-object-syntax": "error"
+   }
 }

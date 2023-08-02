@@ -7,9 +7,7 @@ import RightContent from "./RightContent";
 
 import { getCurrentUser } from "@/libs/actions";
 
-interface MainHeaderProps {}
-
-const MainHeader: React.FC<MainHeaderProps> = async () => {
+const MainHeader: React.FC = async () => {
    const currentUser = await getCurrentUser();
 
    return (
@@ -19,7 +17,7 @@ const MainHeader: React.FC<MainHeaderProps> = async () => {
             <SearchBar />
 
             <div className="flex ml-auto h-full items-center gap-3">
-               {currentUser ? <RightContent /> : <AuthButtonGroup />}
+               {currentUser ? <RightContent user={currentUser} /> : <AuthButtonGroup />}
             </div>
          </div>
       </header>

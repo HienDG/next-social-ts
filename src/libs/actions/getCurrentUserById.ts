@@ -1,7 +1,7 @@
 import prisma_db from "@/libs/db";
 import getAuthSession from "./getAuthSession";
 
-const getCurrentUser = async () => {
+const getCurrentUser = async (userId: string) => {
    try {
       const session = await getAuthSession();
 
@@ -9,11 +9,13 @@ const getCurrentUser = async () => {
 
       const currentUser = await prisma_db.user.findUnique({
          where: {
-            email: session.user?.email,
+            id: userId,
          },
       });
 
       if (!currentUser) throw new Error("Record does not exist");
+
+      if (currentUser.email !== session.user.email) throw new Error("Invalid User Id");
 
       return currentUser;
    } catch (error: unknown) {

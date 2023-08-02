@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-
 import { SIGN_IN_URL, SIGN_UP_URL } from "@/utils/constants";
 
 interface AuthButtonGroupProps {}

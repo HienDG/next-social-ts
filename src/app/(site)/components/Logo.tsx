@@ -6,14 +6,9 @@ import Image from "next/image";
 
 import { HOME_URL } from "@/utils/constants";
 
-interface LogoProps {}
-
-const Logo: React.FC<LogoProps> = () => {
+const Logo: React.FC = () => {
    return (
-      <Link
-         className="flex w-[50px] h-10"
-         href={HOME_URL}
-      >
+      <Link className="flex w-[50px] h-10" href={HOME_URL}>
          <Image
             src="/images/logo.png"
             alt="logo"

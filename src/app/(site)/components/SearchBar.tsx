@@ -4,9 +4,7 @@ import React from "react";
 
 import { AiOutlineSearch } from "react-icons/ai";
 
-interface SearchBarProps {}
-
-const SearchBar: React.FC<SearchBarProps> = () => {
+const SearchBar: React.FC = () => {
    return (
       <div className="mx-4 block flex-1 max-w-[420px] w-full">
          <form className="flex flex-wrap flex-row">
