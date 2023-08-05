@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 
 import { Button, UploadButton } from "@/components/ui";
@@ -9,13 +9,6 @@ import { useSelectedFile } from "@/hooks";
 
 const UploadImage: React.FC = () => {
    const { file, onRemove, onUpload } = useSelectedFile();
-
-   useEffect(() => {
-      // clear data
-      return () => {
-         onRemove();
-      };
-   }, [onRemove]);
 
    return (
       <div>

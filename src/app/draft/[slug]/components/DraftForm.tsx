@@ -36,7 +36,7 @@ const DraftForm: React.FC<DraftFormProps> = () => {
    const [data, setData] = useState<OutputData>({
       blocks: [],
    });
-   const { file } = useSelectedFile();
+   const { file, onRemove } = useSelectedFile();
    const { onClose, onOpen } = useModalStore();
 
    const {
@@ -59,8 +59,9 @@ const DraftForm: React.FC<DraftFormProps> = () => {
          toast.error("Something went wrong");
       },
       onSuccess: () => {
-         router.refresh();
-         router.push(HOME_URL);
+         onRemove(); // clear file input
+         router.refresh(); // refresh page
+         router.push(HOME_URL); // navigate to Home page
       },
    });
 
@@ -70,7 +71,7 @@ const DraftForm: React.FC<DraftFormProps> = () => {
       setTitle(() => getValues("title"));
    }, [getValues]);
 
-   const onSubmit: SubmitHandler<DraftValidation> = (data) => {
+   const onSubmit: SubmitHandler<DraftValidation> = ({ title }) => {
       const newPost: DraftValidation = {
          title,
          content: data,

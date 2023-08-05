@@ -5,7 +5,7 @@ const getCurrentUser = async (userId: string) => {
    try {
       const session = await getAuthSession();
 
-      if (!session || !session.user?.email) throw new Error("Unauthorized");
+      if (!session || !session.user?.email) throw new Error("User not logged in");
 
       const currentUser = await prisma_db.user.findUnique({
          where: {

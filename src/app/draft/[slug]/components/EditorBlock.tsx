@@ -46,13 +46,13 @@ const EditorBlock: React.FC<EditorBlockProps> = ({ onChange, data, register }) =
 
             onChange: async (api) => {
                const data = await api.saver.save();
+
                onChange(data);
             },
 
             onReady: () => {
                editorRef.current = editor;
             },
-
             tools: {
                header: Header,
 
@@ -123,7 +123,8 @@ const EditorBlock: React.FC<EditorBlockProps> = ({ onChange, data, register }) =
             }
          };
       }
-   }, [initializeEditor, isMounted]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [isMounted]);
 
    return (
       <div className="w-full h-full">
