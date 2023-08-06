@@ -13,7 +13,7 @@ const AuthCard: React.FC<AuthCardProps> = () => {
          <h2 className="mb-4 text-xl font-bold">
             DEV Community is a community of 1,113,386 amazing developers
          </h2>
-         <p className="opacity-40 mb-4">
+         <p className="opacity-80 mb-4">
             We`re a place where coders share, stay up-to-date and grow their careers.
          </p>
          <div className="join gap-3 join-vertical w-full">

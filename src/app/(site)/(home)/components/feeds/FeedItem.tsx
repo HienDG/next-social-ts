@@ -18,6 +18,7 @@ const FeedItem: React.FC<FeedItemProps> = ({ post }) => {
             <Fragment>
                {post.coverImage ? <CoverImage src={post.coverImage} postId={post.id} /> : null}
             </Fragment>
+
             <div className="p-4 md:p-5">
                <FeedMeta user={post.user} created_at={post.created_at} />
                <FeedContent post={post} />

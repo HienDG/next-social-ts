@@ -1,22 +1,20 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { User } from "@prisma/client";
 import moment from "moment";
 
-interface FeedMetaProps {
+interface PostMetaProps {
    user: User;
    created_at?: Date;
 }
 
-const FeedMeta: React.FC<FeedMetaProps> = ({ user, created_at = Date.now() }) => {
+const PostMeta: React.FC<PostMetaProps> = ({ user, created_at }) => {
    return (
       <div className="flex items-center justify-between mb-2">
          <div className="flex items-center text-sm">
-            <div className="mr-2">
-               <Link href={"/"} className="block w-8 h-8 overflow-hidden rounded-full">
+            <div className="mr-3">
+               <Link href={"/"} className="block w-10 h-10 overflow-hidden rounded-full">
                   <Image
                      src={user.image || "/images/user.png"}
                      alt="avatar"
@@ -31,8 +29,8 @@ const FeedMeta: React.FC<FeedMetaProps> = ({ user, created_at = Date.now() }) =>
                <Link href="/" className="flex items-center gap-1">
                   <div className="font-bold">{user.name}</div>
                   {/* <span>
-							<span>for</span> <span className="font-bold">Dang HIen</span>
-						</span> */}
+               <span>for</span> <span className="font-bold">Dang HIen</span>
+            </span> */}
                </Link>
                <div className="text-xs opacity-80">
                   <span>
@@ -44,4 +42,4 @@ const FeedMeta: React.FC<FeedMetaProps> = ({ user, created_at = Date.now() }) =>
       </div>
    );
 };
-export default FeedMeta;
+export default PostMeta;

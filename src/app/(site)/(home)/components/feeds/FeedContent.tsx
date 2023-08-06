@@ -8,6 +8,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui";
 
+import { POST_URL } from "@/utils/constants";
 import type { ExtendedPost } from "@/types/db";
 
 interface FeedContentProps {
@@ -17,7 +18,7 @@ interface FeedContentProps {
 const FeedContent: React.FC<FeedContentProps> = ({ post }) => {
    return (
       <div className="flex flex-col gap-2 mt-3 md:pl-10">
-         <Link className="block" href={`/`}>
+         <Link className="block" href={`${POST_URL}/${post.id}`}>
             <h3 className="mb-2 text-3xl font-bold break-words cursor-pointer hover:text-blue-600">
                {post.title}
             </h3>
@@ -25,16 +26,16 @@ const FeedContent: React.FC<FeedContentProps> = ({ post }) => {
 
          <div className="flex items-center justify-between text-sm">
             <div className="gap-2 join">
-               <Button variant="ghost" className="h-10">
+               <Button variant="ghost" className="h-10 min-h-fit">
                   <AiOutlineHeart className="w-5 h-5" />
                </Button>
-               <Button variant="ghost" className="h-10">
+
+               <Button variant="ghost" className="h-10 min-h-fit">
                   <AiOutlineComment className="w-5 h-5" />
-                  <span>Add Comments</span>
                </Button>
             </div>
 
-            <Button variant="ghost" className="h-10 btn-circle">
+            <Button variant="ghost" className="h-10 min-h-fit btn-circle">
                <BsBookmark className="w-5 h-5" />
             </Button>
          </div>
